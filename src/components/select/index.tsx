@@ -88,8 +88,12 @@ export const Select = forwardRef((props: SelectProps, ref: ForwardedRef<SelectRe
             }
         }
     }, [options]);
-    
-    useEffect(() => onChangeText(searchValue), [searchValue]);
+
+    useEffect(() => {
+        if (onChangeText) {
+            onChangeText(searchValue);
+        }
+    }, [searchValue]);
 
     useImperativeHandle(ref, () => ({
         clear: () => {

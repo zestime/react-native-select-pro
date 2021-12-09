@@ -35,6 +35,13 @@ export interface SelectProps {
     /**
      * Callback that is called when option is selected
      *
+     * @param text inputted text
+     * @category Common
+     */
+    onChangeText?: (text: string | null) => void;
+    /**
+     * Callback that is called when option is selected
+     *
      * @param option Selected option
      * @category Common
      */
