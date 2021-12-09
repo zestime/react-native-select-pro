@@ -33,6 +33,7 @@ export const Select = forwardRef((props: SelectProps, ref: ForwardedRef<SelectRe
         hideSelectControlArrow,
         noOptionsText = 'No options',
         onSelect,
+        onChangeText,
         onDropdownOpened,
         onDropdownClosed,
         optionSelectedStyle,
@@ -87,6 +88,8 @@ export const Select = forwardRef((props: SelectProps, ref: ForwardedRef<SelectRe
             }
         }
     }, [options]);
+    
+    useEffect(() => onChangeText(searchValue), [searchValue]);
 
     useImperativeHandle(ref, () => ({
         clear: () => {
